@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Point of Sale Application Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Maven Pro', sans-serif;
+            background-image: url('one.png'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9; /* Adjust the opacity of the background */
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center text in header */
+            border-bottom: 2px solid green;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 50px; /* Adjust logo height */
+            position: absolute; /* Position logo at the left */
+            left: 20px;
+        }
+
+        h1 {
+            color: green;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            border: 2px solid green;
+            border-radius: 10px;
+            padding: 20px; /* Padding inside the container */
+            width: 80%; /* Increased width of the container */
+            max-width: 900px; /* Maximum width */
+            margin: 120px auto 20px; /* Increased top margin to move it down */
+            background-color: rgba(255, 255, 255, 0.9);
+            position: relative; /* Make sure the container overlays the background */
+            z-index: 1; /* Bring the container above the background */
+            float: left; /* Align container to the left */
+            margin-left: 5cm; /* Set left margin to 10cm */
+        }
+
+        .container h2 {
+            text-align: center;
+            color: green;
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        .welcome-heading {
+            text-align: center;
+            color: green;
+            font-size: 20px;
+            margin-bottom: 20px; /* Space below the welcome heading */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: green;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="tel"] {
+            width: calc(100% - 22px); /* Full width minus padding and border */
+            padding: 10px;
+            border: 1px solid green;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        .whatsapp-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            text-decoration: none;
+        }
+
+        .submit-button {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: darkgreen;
+        }
+
+        footer {
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            padding: 10px 0;
+            border-top: 2px solid green;
+        }
+
+        footer h2 {
+            margin: 5px 0;
+            color: green;
+            font-size: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            color: black;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 20px; /* Adjust header font size for small screens */
+            }
+
+            .container {
+                margin: 100px auto 20px; /* Adjust margins for smaller screens */
+                padding: 15px; /* Decrease padding for smaller screens */
+                width: 95%; /* Adjust width for smaller screens */
+                margin-left: 5%; /* Adjust left margin for smaller screens */
+            }
+
+            footer h2 {
+                font-size: 18px; /* Adjust footer font size for small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="nbs-logo.png" alt="Logo" class="logo"> <!-- Replace with your logo URL -->
+        <h1>Retail Point of Sale Application Form</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="welcome-heading">Welcome to NBS Online POS Application Portal
+        </br>
+        Please fill the following required information
+        </h2>
+        
+        <div class="form-group">
+            <label for="merchantName">Merchant Name </label>
+            <input type="text" id="merchantName" placeholder="James Masunda" maxlength="25" required>
+        </div>
+
+        <div class="form-group">
+            <label for="merchantContact">Merchant Contact Number </label>
+            <input type="tel" id="merchantContact" placeholder="0775055063" maxlength="10" required>
+        </div>
+
+        <div class="form-group">
+            <label for="businessName">Business Name </label>
+            <input type="text" id="businessName" placeholder="Masunda Technologies" maxlength="20" required>
+        </div>
+
+        <div class="form-group">
+            <label for="businessAddress">Business Physical Address </label>
+            <input type="text" id="businessAddress" placeholder="Cnr Julius Nyerere St & Second St" maxlength="50" required>
+        </div>
+
+        <a href="https://chat.whatsapp.com/Ky4eXyG0pvoJZL8uC6ipXK" class="whatsapp-link" target="_blank">Join our WhatsApp group for more information</a>
+
+        <button class="submit-button" onclick="submitForm()">Submit</button>
+    </div>
+
+    <footer>
+        <h2>Build, Bank and Go Beyond</h2>
+        <p>&copy; 2025 NBS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            alert("Your request for POS terminals has been successfully submitted.");
+        }
+    </script>
+</body>
+
+</html>
