@@ -27,21 +27,23 @@
             padding: 15px;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center text in header */
+            justify-content: space-between; /* Space between logo and header text */
             border-bottom: 2px solid green;
             z-index: 1000;
+            flex-wrap: wrap; /* Allow items to wrap */
         }
 
         .logo {
             height: 50px; /* Adjust logo height */
-            position: absolute; /* Position logo at the left */
-            left: 20px;
+            margin-left: 20px; /* Space from left edge */
         }
 
         h1 {
             color: green;
             margin: 0;
             font-size: 24px;
+            flex: 1; /* Allow header text to take available space */
+            text-align: center; /* Center the header text */
         }
 
         .container {
@@ -50,7 +52,7 @@
             padding: 20px; /* Padding inside the container */
             width: 80%; /* Increased width of the container */
             max-width: 900px; /* Maximum width */
-            margin: 120px auto 20px; /* Increased top margin to move it down */
+            margin: 85px auto 20px; /* Increased top margin to move it down */
             background-color: rgba(255, 255, 255, 0.9);
             position: relative; /* Make sure the container overlays the background */
             z-index: 1; /* Bring the container above the background */
@@ -89,11 +91,18 @@
             box-sizing: border-box; /* Ensure padding is included in width */
         }
 
+        .error-message {
+            color: red;
+            display: none; /* Hidden by default */
+            margin-top: 10px;
+            text-align: center;
+        }
+
         .whatsapp-link {
             display: block;
             text-align: center;
             margin-top: 20px;
-            color: rgb(16, 40, 255);
+            color: rgb(53, 0, 199);
             text-decoration: none;
         }
 
@@ -158,14 +167,11 @@
 
     <header>
         <img src="nbs-logo.png" alt="Logo" class="logo"> <!-- Replace with your logo URL -->
-        <h1>Retail Point of Sale Application Form</h1>
+        <h1>Retail Point of Sale Application Portal</h1>
     </header>
 
     <div class="container">
-        <h2 class="welcome-heading">Welcome to NBS Online POS Application Portal
-        </br>
-        Please fill the following required information
-        </h2>
+        <h2 class="welcome-heading">Welcome to NBS Online POS Application Portal</h2>
         
         <div class="form-group">
             <label for="merchantName">Merchant Name </label>
@@ -178,7 +184,7 @@
         </div>
 
         <div class="form-group">
-            <label for="businessName">Business Name </label>
+            <label for="businessName">Business Name</label>
             <input type="text" id="businessName" placeholder="Masunda Technologies" maxlength="20" required>
         </div>
 
@@ -186,6 +192,8 @@
             <label for="businessAddress">Business Physical Address </label>
             <input type="text" id="businessAddress" placeholder="Cnr Julius Nyerere St & Second St" maxlength="50" required>
         </div>
+
+        <div class="error-message" id="error-message">Please fill in all fields before submitting.</div>
 
         <a href="https://chat.whatsapp.com/Ky4eXyG0pvoJZL8uC6ipXK" class="whatsapp-link" target="_blank">Join our WhatsApp group for more information</a>
 
@@ -199,7 +207,19 @@
 
     <script>
         function submitForm() {
-            alert("Your request for POS terminals has been successfully submitted.");
+            const merchantName = document.getElementById('merchantName').value;
+            const merchantContact = document.getElementById('merchantContact').value;
+            const businessName = document.getElementById('businessName').value;
+            const businessAddress = document.getElementById('businessAddress').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (!merchantName || !merchantContact || !businessName || !businessAddress) {
+                errorMessage.style.display = 'block'; // Show error message
+            } else {
+                errorMessage.style.display = 'none'; // Hide error message
+                alert("Your request for POS terminals has been successfully submitted.");
+                // Here you can add further form submission logic
+            }
         }
     </script>
 </body>
